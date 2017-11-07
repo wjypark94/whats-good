@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true})
+// Use below for Mlabs address
+// var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true}) 
 mongoose.Promise = global.Promise
 
 db.once('open'),()=>{
@@ -87,4 +89,4 @@ var saveItinerary = function(passI){
 // })
 
 
-module.exports = {Itinerary, Event}
+module.exports = {Itinerary, Event, saveEvent, saveItinerary}
