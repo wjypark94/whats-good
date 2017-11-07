@@ -1,3 +1,6 @@
+# API keys
+server/helpers/config.js
+
 # Logs
 logs
 *.log
