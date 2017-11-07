@@ -2,7 +2,7 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const db = require('./db/mongo/controller.js');
-const utils = require('./helpers');
+// const utils = require('./helpers');
 
 
 const app = express();
