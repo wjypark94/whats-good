@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClinet:true})
+var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClient:true})
 // Use below for Mlabs address
-// var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true}) 
+// var db = mongoose.connect('mongodb://localhost/',{useMongoClient:true}) 
 mongoose.Promise = global.Promise
 
 db.once('open'),()=>{
@@ -88,31 +88,27 @@ var saveItinerary = function(passI){
 var getItsEvents = function(id){
   let id = parseInt(id);
   Itinerary.find({listid : id}, (err, itdata) =>{
-    if (err) {
-      return console.log(err)
+    if(err){
+      return console.log (err)
     } else {
-      Event.find({ eventid: { "$in" : itdata.eventids} }, (err, evdata) => {
-        if (err) {
-          return console.log(err)
-        } else {
-          itdata.events = [];
-          for (var i = 0; i < evdata.length; i++){
-            itdata.events.push(evdata[i])
-          }
-          return itdata;
-        });
+      console.log(itdata.eventids)
+      return getEventsArray(itdata.eventids)
     }
-  });
+  })  
 }
 
-// db.type.find({}, (err, data) =>{
-//   if (err) {
-//     return console.log (err)
-//   } else {
-//     return data;
-//     console.log(data) //Slash this out later
-//   }
-// })
-
+var getEventsArray = function(eventsarr){
+  var totalevents = [];
+  for (var i = 0; i < eventsarr.length; i++){
+    Event.find({eventid: eventsarr[i]}, (err, event) =>{
+      if (err){
+        return console.log(err)
+      } else {
+        totalevents.push(event)
+      }
+    })
+  }
+  return totalevents;
+}
 
 module.exports = {Itinerary, Event, saveEvent, saveItinerary, getItsEvents}
