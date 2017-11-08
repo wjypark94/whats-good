@@ -2,8 +2,9 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const db = require('./db/mongo/controller.js');
-const sqlDb = require('./db/sql/controller.js)
-// const utils = require('./helpers');
+const sqlDb = require('./db/sql/controller.js');
+
+const yelp = require('./helpers/yelpHelpers.js');
 
 
 const app = express();
@@ -43,7 +44,9 @@ app.post('/login', function(req, res){
 
 //SEARCH
 app.post('/search', function(req, res){
-	var data = req.body
+	var data = req.body 
+
+	//expect json {type: , location: , query: }
 	//grab the payload from the request(req.body)
 	//check data.type
 	//if data.type === activity
@@ -51,11 +54,13 @@ app.post('/search', function(req, res){
 	//utils.activityhelper(data, function(items){
 		//res.send(items);
 	//})
-	//if data.type === food
-	
-	//utils.foodhelper(data, function(items){
-		//res.send(items);
-	//})
+	if (data.type === 'food'){
+
+		yelp(data.location, data.search, function(food){
+			console.log(food)
+			res.send(food);	
+		})
+	}
 	//return data to client
 
 	
