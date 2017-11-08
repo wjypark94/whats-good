@@ -53,6 +53,7 @@ var saveEvent = function(passE){
   newE.description = passE.description;
   newE.image = passE.image;
   newE.location = passE.location;
+  newE.url = passE.url;
 
   newE.save(function (err, newE){
     if (err) return console.log(err);
@@ -77,7 +78,6 @@ var saveItinerary = function(passI){
   })
   return(newI);
 }
-
 
 // var ItinerarySchema = new mongoose.Schema({
 //   listname: String,
