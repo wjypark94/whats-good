@@ -37,9 +37,20 @@ app.post('/login', function(req, res){
 
 //SEARCH
 app.post('/search', function(req, res){
+	var data = req.body
 	//grab the payload from the request(req.body)
-	//plug it into helpers(API)
-	//return data
+	//check data.type
+	//if data.type === activity
+	
+	//utils.activityhelper(data, function(items){
+		//res.send(items);
+	//})
+	//if data.type === food
+	
+	//utils.foodhelper(data, function(items){
+		//res.send(items);
+	//})
+	//return data to client
 
 	
 })
@@ -55,8 +66,9 @@ app.post('/search', function(req, res){
 // })
 
 app.post('/itinerary', function(req, res){
+
 	//save userId, userlist to sql, grab id
-	//save event/food item to mongodb, grab id
+	// 
 	//take both ids and put into new itin table in mongoDB
 	res.send('Itinerary saved');
 })
