@@ -94,7 +94,6 @@ var saveItinerary = function(passI){
 var getItsEvents = function(id){
   let id = parseInt(id);
   Itinerary.find({listid : id}, (err, itdata) =>{
-<<<<<<< HEAD
     if(err){
       return console.log (err)
     } else {
@@ -117,23 +116,6 @@ var getEventsArray = function(eventsarr){
   }
   return totalevents;
 }
-=======
-    if (err) {
-      return console.log(err)
-    } else {
-      Event.find({ eventid: { "$in" : itdata.eventids} }, (err, evdata) => {
-        if (err) {
-          return console.log(err)
-        } else {
-          itdata.events = [];
-          for (var i = 0; i < evdata.length; i++){
-            itdata.events.push(evdata[i])
-          }
-          return itdata;
-        });
-    }
-  });
-}
 
 // db.type.find({}, (err, data) =>{
 //   if (err) {
@@ -144,6 +126,5 @@ var getEventsArray = function(eventsarr){
 //   }
 // })
 
->>>>>>> fc0321a028fa0911bd157671c4ae93f2a4c0a186
 
 module.exports = {Itinerary, Event, saveEvent, saveItinerary, getItsEvents}
