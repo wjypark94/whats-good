@@ -3,20 +3,22 @@ const eventfulKey = require('./config.js');
 const apiKey = eventfulKey.eventfulApiKey;
 const parsexml = require('xml2js').parseString;
 
-const getHeaders = (location) => {
+//location = {city, state, date}
+//search = '';
+const getHeaders = (location, search) => {
   return {
     url: 'http://api.eventful.com/rest/events/search',
     qs: {
       app_key: apiKey,
       location: location.city + ', ' + location.state,
-      date: location.date,
-      keywords: 'concert'
+      date: 'this week',
+      keywords: search
     }
   };
 };
 
-module.exports.getEvents = (location, callback) => {
-  const options = getHeaders(location);
+module.exports.getEvents = (location, search, callback) => {
+  const options = getHeaders(location, search);
   // console.log(options);
   request(options)
     .then((events) => {
