@@ -1,0 +1,74 @@
+[
+    {
+      "id": 12345,
+      "name": "Joe",
+      "password": 123,
+      "list_id": 1,
+      "user_id": "joe123",
+      "listName": "Joe's Adventure"
+
+    },
+    {
+      "id": 12346,
+      "name": "Jake",
+      "password": 123,
+      "list_id": 2,
+      "user_id": "jake123",
+      "listName": "Jake's Weekend"
+
+    }, 
+    {
+      "id": 12347,
+      "name": "Zack",
+      "password": 123,
+      "list_id": 3,
+      "user_id": "zack123",
+      "listName": "Zack's Todos"
+
+    },
+    {
+      "id": 12348,
+      "name": "Mike",
+      "password": 123,
+      "list_id": 4,
+      "user_id": "mike123",
+      "listName": "Mike's Date"
+
+    },
+    {
+      "id": 12349,
+      "name": "Jeff",
+      "password": 123,
+      "list_id": 5,
+      "user_id": "jeff123",
+      "listName": "Jeff's Party"
+
+    }, 
+    {
+      "id": 12350,
+      "name": "Will",
+      "password": 123,
+      "list_id": 6,
+      "user_id": "will123",
+      "listName": "Will's Weekend"
+
+    },
+    {
+      "id": 12351,
+      "name": "Fowzia",
+      "password": 123,
+      "list_id": 7,
+      "user_id": "fowzia123",
+      "listName": "Fowzia's List"
+
+    }, 
+    {
+      "id": 12355,
+      "name": "Alex",
+      "password": 123,
+      "list_id": 8,
+      "user_id": "alex123",
+      "listName": "Alex's Weekend"
+
+    }
+]
