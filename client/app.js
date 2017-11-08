@@ -21,7 +21,6 @@ angular.module('whatsGood', ['ngMaterial'])
       this.user = {};
       this.password = '';
 
-      //collapse this
       this.openLoginModal = (event, loginType) => {
         var loginController = function($mdDialog) {
           this.loginType = loginType;
@@ -175,7 +174,7 @@ angular.module('whatsGood', ['ngMaterial'])
             </md-button>
           </div>
         </md-nav-bar>
-
+        
         <!-- start of app content -->
         <md-content flex>
           <div ng-if="$ctrl.currentNavItem === 'home' && $ctrl.isValidUser === false">
