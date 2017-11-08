@@ -5,7 +5,7 @@ angular.module('whatsGood')
     controller: function() {
       //remove after bindings so not overwritten
       this.itinerary = {};
-      this.itinerary.imagePath = 'http://dandelionmoms.com/wp-content/uploads/2012/11/Photo.SantaMonica.4541889759_89e6bdc232_z.jpg';
+      this.itinerary.imagePath = 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/santa-monica-pier-kinga-szymczyk.jpg';
       this.itinerary.itineraryName = 'SM Trip with the boys';
     },
     template: `
