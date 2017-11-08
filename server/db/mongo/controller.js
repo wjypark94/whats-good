@@ -1,7 +1,13 @@
 var mongoose = require('mongoose');
+<<<<<<< HEAD
 var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClient:true})
 // Use below for Mlabs address
 // var db = mongoose.connect('mongodb://localhost/',{useMongoClient:true}) 
+=======
+var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClinet:true})
+// Use below for Mlabs address
+// var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true}) 
+>>>>>>> fc0321a028fa0911bd157671c4ae93f2a4c0a186
 mongoose.Promise = global.Promise
 
 db.once('open'),()=>{
@@ -88,6 +94,7 @@ var saveItinerary = function(passI){
 var getItsEvents = function(id){
   let id = parseInt(id);
   Itinerary.find({listid : id}, (err, itdata) =>{
+<<<<<<< HEAD
     if(err){
       return console.log (err)
     } else {
@@ -110,5 +117,33 @@ var getEventsArray = function(eventsarr){
   }
   return totalevents;
 }
+=======
+    if (err) {
+      return console.log(err)
+    } else {
+      Event.find({ eventid: { "$in" : itdata.eventids} }, (err, evdata) => {
+        if (err) {
+          return console.log(err)
+        } else {
+          itdata.events = [];
+          for (var i = 0; i < evdata.length; i++){
+            itdata.events.push(evdata[i])
+          }
+          return itdata;
+        });
+    }
+  });
+}
+
+// db.type.find({}, (err, data) =>{
+//   if (err) {
+//     return console.log (err)
+//   } else {
+//     return data;
+//     console.log(data) //Slash this out later
+//   }
+// })
+
+>>>>>>> fc0321a028fa0911bd157671c4ae93f2a4c0a186
 
 module.exports = {Itinerary, Event, saveEvent, saveItinerary, getItsEvents}
