@@ -3,12 +3,8 @@ const parser = require('body-parser');
 const path = require('path');
 const db = require('./db/mongo/controller.js');
 const sqlDb = require('./db/sql/controller.js');
-<<<<<<< HEAD
-
 const yelp = require('./helpers/yelpHelpers.js');
-=======
 const eventful = require('./helpers/eventful.js');
->>>>>>> working post to 'search' with type = activity
 
 
 const app = express();
@@ -47,8 +43,8 @@ app.post('/login', function(req, res) {
 
 
 //SEARCH
-app.post('/search', function(req, res){
-	var data = req.body 
+app.post('/search', function(req, res) {
+  var data = req.body; 
   //return data to client
   //data = {
   //type: 'activity' || 'food'
@@ -56,14 +52,19 @@ app.post('/search', function(req, res){
   //search: '';
   //}
 
-	if (data.type === 'food'){
+  if (data.type === 'food') {
 
-		yelp(data.location, data.search, function(food){
-			console.log(food)
-			res.send(food);	
-		})
-	}
-	
+    yelp(data.location, data.search, function(food) {
+      console.log(food);
+      res.send(food);	
+    });
+  }
+
+  //data = {
+  //type: 'activity' || 'food'
+  //location: {city, state, date}
+  //search: '';
+  //}
   if (data.type === 'activity') {
     eventful.getEvents(data.location, data.search, function(events) {
       console.log('get events ', events);
@@ -83,7 +84,6 @@ app.post('/search', function(req, res){
   //res.send(items);
   //})
   //return data to client
-
 	
 });
 
@@ -124,4 +124,4 @@ app.post('/itinerary', function(req, res) {
 
 
 
-app.listen(3000, ()=> console.log('Listening on port 3000'));
+app.listen(3000, () => console.log('Listening on port 3000'));
