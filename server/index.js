@@ -2,6 +2,7 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const db = require('./db/mongo/controller.js');
+const sqlDb = require('./db/sql/controller.js)
 // const utils = require('./helpers');
 
 
@@ -14,8 +15,8 @@ app.use(express.static(path.join(__dirname, '../client')))
 
 //LANDING PAGE
 app.get('/', function(req, res){
-	//landing page is userlist
-	//get from mongoBD
+	//landing page is userlist AFTER login
+	//get from mongoBD (see below)
 res.send()
 
 })
@@ -23,7 +24,12 @@ res.send()
 
 //SIGNUP-LOGIN
 app.post('/signup', function(req, res){
+	var signUp = req.body
 	//save to sql database
+	// sqlDb.POST(signUp, function(res){
+
+	// 	res.send(200)
+	// })
 
 	
 })
@@ -66,11 +72,17 @@ app.post('/search', function(req, res){
 // })
 
 app.post('/itinerary', function(req, res){
-
+	const itinBody = req.body;
 	//save userId, userlist to sql, grab id
-	// 
-	//take both ids and put into new itin table in mongoDB
-	res.send('Itinerary saved');
+	//sqlDb.POST(itinBody, function(res){
+		//take both ids and put into new table in mongoDB
+	// 	db.POST(res, function(res){
+	// 		res.send(201, res?);
+	// 	})
+	// })
+	
+	
+	
 })
 
 

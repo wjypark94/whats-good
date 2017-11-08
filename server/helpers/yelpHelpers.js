@@ -8,9 +8,9 @@ const yelpRequest = function(location, callback) {
   }
 
   const options ={
-      uri: 'https://api.yelp.com/v2/search',
+      uri: 'https://api.yelp.com/v3/businesses/search',
       qs: params,
-      headers: {'User Agent': 'request-promise'},
+      headers: {'Authorization': 'ACCESS_TOKEN'},
       json: true
     }
     
