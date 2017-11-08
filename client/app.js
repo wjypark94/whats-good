@@ -175,7 +175,6 @@ angular.module('whatsGood', ['ngMaterial'])
             </md-button>
           </div>
         </md-nav-bar>
-
         <!-- start of app content -->
         <md-content flex>
           <div ng-if="$ctrl.currentNavItem === 'home' && $ctrl.isValidUser === false">
