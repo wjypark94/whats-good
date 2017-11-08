@@ -33,3 +33,8 @@ UsersLists.belongsTo(Users);
 Users.hasMany(UsersLists);
 
 db.sync();
+
+module.exports.db = {
+    Users: Users,
+    UsersLists: UsersLists
+}
