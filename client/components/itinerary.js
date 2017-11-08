@@ -17,7 +17,7 @@ angular.module('whatsGood')
               <div flex-xs flex-gt-xs="95" layout="column">
                 <md-card style="min-height:75%;">
                   <div style="position:relative;">
-                    <img flex="100" ng-src="{{$ctrl.itinerary.imagePath}}" class="md-card-image" alt="Washed Out">
+                    <img flex="100" ng-src="{{$ctrl.itinerary.imagePath}}" class="md-card-image">
                     <div style="position:absolute; bottom:0px; left:0px; height:auto; width:100%; text-align:center; font-size:1.5em; padding: 10px 0px; background-color:rgba(0,0,0,0.6)">
                       {{$ctrl.itinerary.itineraryName}}
                     </div>
@@ -55,7 +55,7 @@ angular.module('whatsGood')
         <div flex layout="column" class="boxWithHeight" layout-padding>
 
           <section flex="70">
-
+            <itineray-details />
           </section>
           <section flex ></section>
         </div>
