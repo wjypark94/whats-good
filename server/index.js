@@ -47,14 +47,12 @@ app.post('/login', function(req, res) {
 app.post('/search', function(req, res) {
   var data = req.body;
 
-  //expect json {type: , location: , query: }
-  //grab the payload from the request(req.body)
-  //check data.type
-  //if data.type === activity
-	
-  //utils.activityhelper(data, function(items){
-  //res.send(items);
-  //})
+  //data = {
+  //type: 'activity' || 'food'
+  //location: {city, state, date}
+  //search: '';
+  //}
+
   if (data.type === 'food') {
 
     yelp(data.location, data.search, function(food) {
@@ -62,31 +60,14 @@ app.post('/search', function(req, res) {
       res.send(food);	
     });
   }
-  //data = {
-  //type: 'activity' || 'food'
-  //location: {city, state, date}
-  //search: '';
-  //}
+  
   if (data.type === 'activity') {
     eventful.getEvents(data.location, data.search, function(events) {
       console.log('get events ', events);
       res.send(events);
     });
   }
-
-  //grab the payload from the request(req.body)
-  //check data.type
-
-  //utils.activityhelper(data, function(items){
-  //res.send(items);
-  //})
-  //if data.type === food
-
-  //utils.foodhelper(data, function(items){
-  //res.send(items);
-  //})
-  //return data to client
-	
+  
 });
 
 
