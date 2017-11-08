@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true})
+var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClinet:true})
 // Use below for Mlabs address
 // var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true}) 
 mongoose.Promise = global.Promise
@@ -23,6 +23,7 @@ var EventSchema = new mongoose.Schema({
   description: String,
   image: String,
   location: String,
+  url: String,
 })
 
 var Itinerary = mongoose.model('Itinerary', ItinerarySchema)
@@ -79,14 +80,39 @@ var saveItinerary = function(passI){
   return(newI);
 }
 
-// var ItinerarySchema = new mongoose.Schema({
-//   listname: String,
-//   listid: Number,
-//   userid: String,
-//   date: String, // This might need to be DATE, but it's not a great format
-//   eventids: [],
-//   eventtime: [],
+// This function takes in an Itinerary ID, finds the itineray's eventsid,
+// Which is an array of event ids, and then gets all those events,
+// Attaches them to the iternary data as itdata.events;
+// And returns the whole events obj with that array attached to it.
+
+var getItsEvents = function(id){
+  let id = parseInt(id);
+  Itinerary.find({listid : id}, (err, itdata) =>{
+    if (err) {
+      return console.log(err)
+    } else {
+      Event.find({ eventid: { "$in" : itdata.eventids} }, (err, evdata) => {
+        if (err) {
+          return console.log(err)
+        } else {
+          itdata.events = [];
+          for (var i = 0; i < evdata.length; i++){
+            itdata.events.push(evdata[i])
+          }
+          return itdata;
+        });
+    }
+  });
+}
+
+// db.type.find({}, (err, data) =>{
+//   if (err) {
+//     return console.log (err)
+//   } else {
+//     return data;
+//     console.log(data) //Slash this out later
+//   }
 // })
 
 
-module.exports = {Itinerary, Event, saveEvent, saveItinerary}
+module.exports = {Itinerary, Event, saveEvent, saveItinerary, getItsEvents}
