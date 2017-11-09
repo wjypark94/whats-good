@@ -24,20 +24,19 @@ app.get('/', function(req, res) {
 
 
 //SIGNUP-LOGIN
-app.post('/signup', function(req, res) {
-  var signUp = req.body;
-  //save to sql database
-  // sqlDb.POST(signUp, function(res){
 
-  // 	res.send(200)
-  // })
+//save to sql database
+app.post('/signup', function(req, res){
+	var signUp = req.body
+      sqlDb.controlUsers.post(signUp, function(res){
+          res.send(200)
+      })
+})
 
-	
-});
 
-app.post('/login', function(req, res) {
-  //check if exists on sql db
-  //return boolean
+   //check if exists on sql db
+   //return boolean
+app.post('/login', function(req, res){
 	
 });
 
