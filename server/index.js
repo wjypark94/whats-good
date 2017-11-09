@@ -44,14 +44,7 @@ app.post('/login', function(req, res) {
 
 //SEARCH
 app.post('/search', function(req, res) {
-  var data = req.body; 
-  //return data to client
-  //data = {
-  //type: 'activity' || 'food'
-  //location: {city, state, date}
-  //search: '';
-  //}
-
+  var data = req.body;
   //data = {
   //type: 'activity' || 'food'
   //location: {city, state, date}
@@ -112,4 +105,4 @@ app.post('/itinerary', function(req, res) {
 
 
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(3000, ()=> console.log('Listening on port 3000'));
