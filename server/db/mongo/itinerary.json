@@ -1,0 +1,18 @@
+[
+  {
+    "listname": "Mikes gnar adventure",
+    "listid": 1,
+    "userid": "mdubbpro",
+    "date" : "11.07.2017",
+    "eventids": [1, 2, 4],
+    "eventtime": ["7:00", "9:00", "11:00"],
+  },
+  {
+    "listname": "Mikes gnar adventur",
+    "listid": 2,
+    "userid": "zacstlouis",
+    "date" : "11.09.2017",
+    "eventids": [3, 7, 9],
+    "eventtime": ["16:00", "18:00", "19:00"],
+  },
+]
