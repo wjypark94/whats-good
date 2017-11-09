@@ -1,13 +1,7 @@
 var mongoose = require('mongoose');
-<<<<<<< HEAD
 var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClient:true})
 // Use below for Mlabs address
 // var db = mongoose.connect('mongodb://localhost/',{useMongoClient:true}) 
-=======
-var db = mongoose.connect('mongodb://localhost/eventlist',{useMongoClinet:true})
-// Use below for Mlabs address
-// var db = mongoose.connect('mongodb://localhost/',{useMongoClinet:true}) 
->>>>>>> fc0321a028fa0911bd157671c4ae93f2a4c0a186
 mongoose.Promise = global.Promise
 
 db.once('open'),()=>{
@@ -116,15 +110,5 @@ var getEventsArray = function(eventsarr){
   }
   return totalevents;
 }
-
-// db.type.find({}, (err, data) =>{
-//   if (err) {
-//     return console.log (err)
-//   } else {
-//     return data;
-//     console.log(data) //Slash this out later
-//   }
-// })
-
 
 module.exports = {Itinerary, Event, saveEvent, saveItinerary, getItsEvents}
